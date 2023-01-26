@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution">
+
+    <!--TODO dist:instant : isi dengan true jika Anda membuat sebuah module menjadi Instant Module.-->
+     <!--TODO dist:delivery : berisi tentang bagaimana cara module didistribusikan, gunakan dist:on-demand untuk membuat module diunduh ketika dibutuhkan. Untuk kode kebalikannya  yaitu dist:install-time.-->
+    <!--TODO dist:fusing : Perlu diketahui bahwa fitur dynamic feature hanya bisa berjalan pada Android Kitkat (v4.4) ke atas. Apabila pada dist:include bernilai true maka semua module akan diinstal pada saat awal instalasi. Jika Anda ingin tidak langsung terinstall, ubah nilainya dengan false, namun Anda perlu membuat multi-APK secara manual.-->
+
+    <dist:module
+    dist:instant="false"
+        dist:title="@string/title_chat">
+        <dist:delivery>
+            <dist:on-demand />
+        </dist:delivery>
+
+        <dist:fusing dist:include="true" />
+    </dist:module>
+
+    <application>
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+    </application>
+
+</manifest>
